@@ -137,8 +137,6 @@ def iterative_sampling_loop(
         top_pool = top_pool.drop_duplicates(subset=["InChIKey"], keep="first")
         top_pool = top_pool.sort_values(by="score", ascending=False)
         top_pool = top_pool.head(config["num_molecules"])
-
-        # format to accepted format
         top_entries = {"molecules": top_pool["name"].tolist()}
 
         # write to file
